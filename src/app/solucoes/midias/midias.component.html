@@ -1,0 +1,55 @@
+<div class="loaders">
+  <div class="loader">
+    <div id="certifis"></div>
+    <span class="text-center txt-loader">Carregando</span>
+  </div>
+</div>
+<app-header></app-header>
+<section class="interna solucoes">
+  <section class="banner-interna">
+    <div class="container">
+      <div class="banner-text">
+        <h4>Mídias</h4>
+        <h5>Conheça as mídias que temos disponíveis para venda.</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="description-interna description-certificado">
+    <div class="container">
+      <div class="contact-details-inner">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-3 mt-1">
+            <span *ngFor="let solucao of arSolucoes">
+              <img [src]="solucao.imagem" class="img-fluid img-certificado" alt="" *ngIf="solucao.id == this.idSolucao">
+            </span>            
+          </div>
+          <div class="col-xl-5 col-lg-5 col-md-5">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 col-12 certificado" *ngFor="let solucao of arSolucoes"
+                (click)="getSolucao(solucao.id)">
+                <span class="float-left">
+                  {{ solucao.tipo }} <br>
+                  <b>{{ solucao.nome }}</b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 text-center valor-validade pt-2">
+            <span *ngFor="let solucao of arSolucoes">
+              <span *ngIf="solucao.id == this.idSolucao">
+                <b>{{ solucao.tipo }} {{ solucao.nome }}</b> <br>
+                <span class="valor mt-0">
+                  R$ <b>{{ solucao.valor }}</b> <br>
+                  em até {{ solucao.parcela }} x
+                </span>
+                <!-- <span class="comprar" routerLink="/contato">Tenho Interesse</span> -->
+                <a mp-mode="dftl" href="{{solucao.botao}}" name="MP-payButton" class='blue-tr-m-rn-brall'>Comprar Certificado</a>           
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,83 @@
+<div class="loaders">
+  <div class="loader">
+    <div id="certifis"></div>
+    <span class="text-center txt-loader">Carregando</span>
+  </div>
+</div>
+<app-header></app-header>
+<section class="interna">
+  <section class="banner-interna">
+    <div class="container">
+      <div class="banner-text">
+        <h4>Contato</h4>
+        <h5>Não encontrou o que procurava? Preencha o formulário abaixo que entraremos em contato com você</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="description-interna">
+    <div class="container">
+      <div class="contact-details-inner">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="contact-text contact-text-contato">
+              <div class="main-title title-contact">
+                <img src="assets/images/img-sobre.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-form">
+              <form #form="ngForm" (ngSubmit)="form.valid && enviarEmail(form)" class="contact-us-form row">
+                <div class="form-group col-lg-6">
+                  <input type="text" class="form-control" name="Nome" placeholder="Nome" required [(ngModel)]="model.Nome" #Nome="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Nome.invalid }">
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="email" class="form-control" name="Email" placeholder="E-mail" required [(ngModel)]="model.Email" #Email="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Email.invalid }">
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="text" class="form-control" name="Telefone" mask="(00) 0000-0000" placeholder="Telefone" required [(ngModel)]="model.Telefone" #Telefone="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Telefone.invalid }">
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="text" class="form-control" name="Celular" mask="(00) 00000-0000" placeholder="Celular" required [(ngModel)]="model.Celular" #Celular="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Celular.invalid }">
+                </div>
+                <div class="form-group col-lg-8">
+                  <input type="text" class="form-control" name="Cidade" placeholder="Cidade" required [(ngModel)]="model.Cidade" #Cidade="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Cidade.invalid }">
+                </div>
+                <div class="form-group col-lg-4">
+                  <input type="text" class="form-control" name="Uf" placeholder="UF" required [(ngModel)]="model.Uf" #Uf="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Uf.invalid }">
+                </div>
+                <div class="form-group col-lg-12">
+                  <textarea class="form-control" name="Mensagem" rows="1" placeholder="Mensagem" required [(ngModel)]="model.Mensagem" #Mensagem="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Mensagem.invalid }"></textarea>
+                </div>
+                <div class="form-group offset-lg-8 col-lg-4 col-md-4">
+                  <button type="submit" value="submit" class="btn submit_btn2 form-control">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4 contacts">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>
+              Rua Sérgio Bittencourt, nº 56, <br>
+              Comasa, 89.228-360, Joinville -SC
+            </span>
+          </div>
+          <div class="col-lg-4 contacts">
+            <i class="fas fa-phone"></i>
+            <span>
+              (47) 3278-1255 | (47) 98434-1728 <br>
+              (47) 99117-4087
+            </span>
+          </div>
+          <div class="col-lg-4 contacts">
+            <i class="fas fa-envelope"></i>
+            <span>
+              contato@certifis.com.br
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

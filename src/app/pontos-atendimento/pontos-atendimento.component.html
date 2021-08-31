@@ -1,0 +1,50 @@
+<div class="loaders">
+  <div class="loader">
+    <div id="certifis"></div>
+    <span class="text-center txt-loader">Carregando</span>
+  </div>
+</div>
+<app-header></app-header>
+<section class="interna solucoes">
+  <section class="banner-interna">
+    <div class="container">
+      <div class="banner-text">
+        <h4>Local de Atendimento</h4>
+        <h5>Localize o escritório mais próximo, para melhor atendê-lo.</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="description-interna description-certificado">
+    <div class="container">
+      <div class="contact-details-inner">
+        <div class="row">
+          <div class="col-xl-7 col-lg-7 col-md-7">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 col-12 certificado" *ngFor="let ponto of arPontosAtendimento" (click)="getPonto(ponto.id)">
+                <span class="float-left">
+                  <b style="line-height: 50px;">{{ ponto.nome }}</b>
+                </span>
+                <span class="validade float-right mt-0 text-center">
+                  {{ ponto.qtd }} <br>
+                  <b>Cidade(s)</b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 offset-lg-1 text-center valor-validade">
+            <h2 class="titulo-download" style="font-size: 18px; margin-bottom: 20px;">A Certifis está presente em todo o território nacional, escolha o seu estado e encontre o parceiro mais próximo</h2>
+            <span *ngFor="let ponto of arPontosAtendimento">
+              <span *ngIf="ponto.id == this.idPonto">
+                <b class="validade" style="font-weight: bold;">Parceiros Certifis {{ ponto.nome }}</b> <br>
+                <span *ngFor="let cidade of ponto.cidades">
+                  {{ cidade.nome }} <br>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

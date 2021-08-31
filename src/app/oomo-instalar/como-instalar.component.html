@@ -1,0 +1,70 @@
+<div class="loaders">
+  <div class="loader">
+    <div id="certifis"></div>
+    <span class="text-center txt-loader">Carregando</span>
+  </div>
+</div>
+<app-header></app-header>
+<section class="interna como-instalar">
+  <section class="banner-interna">
+    <div class="container">
+      <div class="banner-text">
+        <h4>Como Instalar</h4>
+        <h5>Faça download das mídias necessárias.</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="description-interna description-certificado">
+    <div class="container">
+      <div class="contact-details-inner">
+        <div class="row">
+          <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+            <h2 class="titulo-download">Selecione um dispositivo e baixe o drive de instalação.</h2>
+            <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+              <ngb-panel [id]="instalar.id" [title]="instalar.nome" class="toggle" *ngFor="let instalar of arComoInstalar">
+                <ng-template ngbPanelContent>
+                  <span *ngFor="let driver of instalar.drivers">
+                    <a [href]="driver.link">{{ driver.nome }}</a>
+                    <small>{{ driver.especificacao }}</small>
+                  </span>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
+          </div>
+          <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12 pr-0 mt-md-12">
+            <h2 class="titulo-download">Informe os dados abaixo e envie sua solicitação para a CERTIFIS. Nossa equipe entrará em contato o quanto antes.</h2>
+            <div class="contact-form">
+              <form #form="ngForm" (ngSubmit)="form.valid && enviarEmail(form)" class="contact-us-form row">
+                <div class="form-group col-lg-6">
+                  <input type="text" class="form-control" name="Nome" placeholder="Nome" required [(ngModel)]="model.Nome" #Nome="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Nome.invalid }">
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="email" class="form-control" name="Email" placeholder="E-mail" required [(ngModel)]="model.Email" #Email="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Email.invalid }">
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="text" class="form-control" name="Telefone" mask="(00) 0000-0000" placeholder="Telefone" required [(ngModel)]="model.Telefone" #Telefone="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Telefone.invalid }">
+                </div>
+                <div class="form-group col-lg-6">
+                  <input type="text" class="form-control" name="Celular" mask="(00) 00000-0000" placeholder="Celular" required [(ngModel)]="model.Celular" #Celular="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Celular.invalid }">
+                </div>
+                <div class="form-group col-lg-8">
+                  <input type="text" class="form-control" name="Cidade" placeholder="Cidade" required [(ngModel)]="model.Cidade" #Cidade="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Cidade.invalid }">
+                </div>
+                <div class="form-group col-lg-4">
+                  <input type="text" class="form-control" name="Uf" placeholder="UF" maxlength="2" required [(ngModel)]="model.Uf" #Uf="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Uf.invalid }">
+                </div>
+                <div class="form-group col-lg-12">
+                  <textarea class="form-control" name="Mensagem" rows="1" placeholder="Mensagem" required [(ngModel)]="model.Mensagem" #Mensagem="ngModel" [ngClass]="{ 'is-invalid': form.submitted && Mensagem.invalid }"></textarea>
+                </div>
+                <div class="form-group offset-lg-8 col-lg-4">
+                  <button type="submit" value="submit" class="btn submit_btn2 form-control float-right">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
